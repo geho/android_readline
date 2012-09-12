@@ -2038,7 +2038,9 @@ rl_username_completion_function (text, state)
 
       username = savestring (&text[first_char_loc]);
       namelen = strlen (username);
+#if defined (HAVE_GETPWENT)
       setpwent ();
+#endif
     }
 
 #if defined (HAVE_GETPWENT)
